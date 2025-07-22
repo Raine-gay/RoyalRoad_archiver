@@ -1,3 +1,5 @@
+#![allow(non_snake_case)] // Gets rid of the annoying "Oh no the project is using a non snake case name" warning.
+
 use time::OffsetDateTime;
 use wasm_bindgen::prelude::*;
 

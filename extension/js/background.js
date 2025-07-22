@@ -1,4 +1,4 @@
-import initWasmModule, { check_wasm } from "../wasm/royal_road_archiver.js"
+import initWasmModule, { check_wasm } from "../wasm/RoyalRoad_archiver.js"
 
 (async () => {
     await initWasmModule();

@@ -14,8 +14,8 @@
     "content_scripts": [
         {
             "matches": ["*://*.royalroad.com/fiction/*"],
-            "js": ["/js/royal_road.js"],
-            "css": ["/css/royal_road.css"]
+            "js": ["/js/RoyalRoad.js"],
+            "css": ["/css/RoyalRoad.css"]
         }
     ],
 
@@ -28,8 +28,8 @@
         {
             "matches": ["<all_urls>"],
             "resources": [
-                "/wasm/royal_road_archiver_bg.wasm",
-                "/wasm/royal_road_archiver.js"
+                "/wasm/RoyalRoad_archiver_bg.wasm",
+                "/wasm/RoyalRoad_archiver.js"
             ]
         }
     ]

@@ -68,7 +68,7 @@ function __wbg_get_imports() {
         const ret = arg0.getTimezoneOffset();
         return ret;
     };
-    imports.wbg.__wbg_log_582130fa2c37bd3d = function(arg0, arg1) {
+    imports.wbg.__wbg_log_e72c7d781cd20ea2 = function(arg0, arg1) {
         console.log(getStringFromWasm0(arg0, arg1));
     };
     imports.wbg.__wbg_new0_f788a2397c7ca929 = function() {
@@ -152,7 +152,7 @@ async function __wbg_init(module_or_path) {
     }
 
     if (typeof module_or_path === 'undefined') {
-        module_or_path = new URL('royal_road_archiver_bg.wasm', import.meta.url);
+        module_or_path = new URL('RoyalRoad_archiver_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 
