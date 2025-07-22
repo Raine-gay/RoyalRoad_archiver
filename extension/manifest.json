@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+
+    "name": "RoyalRoad Archiver",
+    "description": "Extension to archive webnovels from RoyalRoad so you can access them forevermore, even when deleted.",
+
+    "version": "2.0.0",
+    "author": "Raine-gay",
+
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.royalroad.com/fiction/*"],
+            "js": ["/js/royal_road.js"],
+            "css": ["/css/royal_road.css"]
+        }
+    ],
+
+    "background": {
+        "type": "module",
+        "scripts": ["/js/background.js"]
+    },
+
+    "web_accessible_resources": [
+        {
+            "matches": ["<all_urls>"],
+            "resources": [
+                "/wasm/royal_road_archiver_bg.wasm",
+                "/wasm/royal_road_archiver.js"
+            ]
+        }
+    ]
+}
