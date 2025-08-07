@@ -21,9 +21,11 @@ function getStringFromWasm0(ptr, len) {
  * Prints a log message to the RoyalRoad Archiver extension background service saying Wasm has loaded correctly.
  *
  * If this message is not present in the console, something has gone wrong loading Wasm.
+ * @returns {boolean}
  */
-export function check_wasm() {
-    wasm.check_wasm();
+export function test_wasm() {
+    const ret = wasm.test_wasm();
+    return ret !== 0;
 }
 
 async function __wbg_load(module, imports) {
@@ -60,24 +62,23 @@ async function __wbg_load(module, imports) {
 function __wbg_get_imports() {
     const imports = {};
     imports.wbg = {};
-    imports.wbg.__wbg_getTime_46267b1c24877e30 = function(arg0) {
-        const ret = arg0.getTime();
-        return ret;
+    imports.wbg.__wbg_debug_e17b51583ca6a632 = function(arg0, arg1, arg2, arg3) {
+        console.debug(arg0, arg1, arg2, arg3);
     };
-    imports.wbg.__wbg_getTimezoneOffset_6b5752021c499c47 = function(arg0) {
-        const ret = arg0.getTimezoneOffset();
-        return ret;
+    imports.wbg.__wbg_error_524f506f44df1645 = function(arg0) {
+        console.error(arg0);
     };
-    imports.wbg.__wbg_log_e72c7d781cd20ea2 = function(arg0, arg1) {
-        console.log(getStringFromWasm0(arg0, arg1));
+    imports.wbg.__wbg_error_80de38b3f7cc3c3c = function(arg0, arg1, arg2, arg3) {
+        console.error(arg0, arg1, arg2, arg3);
     };
-    imports.wbg.__wbg_new0_f788a2397c7ca929 = function() {
-        const ret = new Date();
-        return ret;
+    imports.wbg.__wbg_info_033d8b8a0838f1d3 = function(arg0, arg1, arg2, arg3) {
+        console.info(arg0, arg1, arg2, arg3);
     };
-    imports.wbg.__wbg_new_31a97dac4f10fab7 = function(arg0) {
-        const ret = new Date(arg0);
-        return ret;
+    imports.wbg.__wbg_log_cad59bb680daec67 = function(arg0, arg1, arg2, arg3) {
+        console.log(arg0, arg1, arg2, arg3);
+    };
+    imports.wbg.__wbg_warn_aaf1f4664a035bd6 = function(arg0, arg1, arg2, arg3) {
+        console.warn(arg0, arg1, arg2, arg3);
     };
     imports.wbg.__wbindgen_init_externref_table = function() {
         const table = wasm.__wbindgen_export_0;
@@ -89,8 +90,8 @@ function __wbg_get_imports() {
         table.set(offset + 3, false);
         ;
     };
-    imports.wbg.__wbindgen_number_new = function(arg0) {
-        const ret = arg0;
+    imports.wbg.__wbindgen_string_new = function(arg0, arg1) {
+        const ret = getStringFromWasm0(arg0, arg1);
         return ret;
     };
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
